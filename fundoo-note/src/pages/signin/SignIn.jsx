@@ -56,6 +56,7 @@ function SignIn() {
             SignInApi(userDetail)
                 .then(response => {
                     console.log(response)
+                    localStorage.setItem('token', response.data.data)
                 })
                 .catch(error => {
                     console.log(error)
@@ -68,6 +69,7 @@ function SignIn() {
 
     return (
         <>
+         <div className="body">
             <form className="signInFormBody">
                 <div className="signInLogo">
                     <div className="f">F</div>
@@ -125,6 +127,7 @@ function SignIn() {
                 <div className="signInFooterContent">
                     Help  &nbsp;  &nbsp;  &nbsp; Privacy &nbsp; &nbsp; &nbsp; Terms
                 </div>
+            </div>
             </div>
         </>
     )
