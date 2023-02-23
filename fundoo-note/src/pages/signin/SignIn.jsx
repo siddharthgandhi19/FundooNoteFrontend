@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './SignIn.css';
 import  {SignInApi} from '../../services/UserService'
+import { useNavigate } from 'react-router-dom';
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
@@ -14,6 +15,8 @@ function SignIn() {
         password: ""
 
     })
+
+    let navigate=useNavigate()
 
     const takeEmail = (event) => {
         console.log(event.target.value)
@@ -57,10 +60,12 @@ function SignIn() {
                 .then(response => {
                     console.log(response)
                     localStorage.setItem('token', response.data.data)
+                    navigate('/dashboard')
                 })
                 .catch(error => {
                     console.log(error)
                 })
+                console.log('Login Successfull')
         }
 
 
@@ -98,7 +103,9 @@ function SignIn() {
                         onChange={takePassword}
                         error={regexObj.passwordBorder}
                         helperText={regexObj.passwordHelper}
-                        className="signInInputPassword" id="outlined-basic" label="Password" variant="outlined" />
+                        className="signInInputPassword" id="outlined-basic" label="Password" variant="outlined" 
+                        type='password'
+                        />
                     </div>
                 </div>
                 <div className="signInForgotBox">

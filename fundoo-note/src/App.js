@@ -6,6 +6,7 @@ import TakeNote1 from './components/TakeNote1/TakeNote1';
 import TakeNote2 from './components/TakeNote2/TakeNote2'
 import TakeNote3 from './components/TakeNote3/TakeNote3'
 import Dashboard from './pages/Dashboard/Dashboard';
+import Router1 from './Router/Router';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <TakeNote1/>
       <TakeNote2/>
       <TakeNote3/> */}
-      <Dashboard/>
+      {/* <Dashboard/> */}
+      <Router1/>
     </div>
   );
 }

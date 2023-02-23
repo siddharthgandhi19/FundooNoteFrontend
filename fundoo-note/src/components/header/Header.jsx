@@ -17,26 +17,29 @@ function Header() {
         <div className="HeaderMainContainer">
             <div className="sideheader">
                 <Button><MenuIcon style={{ color: '#5f6368' }} /></Button>
-                <img className='keepLogo' src='https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png' />
+                <img width={50} className='keepLogo' src='https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png' />
                 <div className="keep">
                     FunDoo
                 </div>
             </div>
 
+            <div className="emptybox1"></div>
+
             <div className="middleheader">
-            <div className='icon'><Button> <SearchIcon style={{ color: '#5f6368' }} /> </Button></div>
-            <div className='input'><InputBase placeholder="Search" /></div>
-                 </div>
+                <div className='icon'><Button> <SearchIcon style={{ color: '#5f6368' }} /> </Button></div>
+                <div className='input'><InputBase placeholder="Search" /></div>
+            </div>
 
             <div className="rightsideheader">
+                <div className="emptybox"></div>
                 <div className="rightSideOne">
-                <IconButton><RefreshIcon fontSize="medium" style={{ color: '#5f6368' }}/></IconButton>
-                <IconButton><GridViewTwoToneIcon style={{ color: '#5f6368'}}/></IconButton>
-                <IconButton><SettingsOutlinedIcon style={{ color: '#5f6368'}} /></IconButton>
+                    <IconButton><RefreshIcon fontSize="medium" style={{ color: '#5f6368' }} /></IconButton>
+                    <IconButton><GridViewTwoToneIcon fontSize="medium" style={{ color: '#5f6368' }} /></IconButton>
+                    <IconButton><SettingsOutlinedIcon fontSize="medium" style={{ color: '#5f6368' }} /></IconButton>
                 </div>
                 <div className="rightSideTwo">
-                <IconButton><AppsOutlinedIcon style={{ color: '#5f6368'}}/></IconButton>
-                <IconButton><AccountCircleOutlinedIcon style={{ color: '#5f6368'}}/></IconButton>
+                    <IconButton><AppsOutlinedIcon style={{ color: '#5f6368' }} /></IconButton>
+                    <IconButton><AccountCircleOutlinedIcon style={{ color: '#5f6368' }} /></IconButton>
                 </div>
             </div>
 
