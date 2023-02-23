@@ -19,3 +19,8 @@ export const NoteArchieveApi = (data) => {
     let response = axios.put(`${BaseUrl}/ArchieveNote`, data, HeaderConfig)
     return response
 }
+
+export const NoteTrashApi = (data) => {
+    let response= axios.put(`${BaseUrl}/TrashNote`, data ,HeaderConfig)
+    return response
+}

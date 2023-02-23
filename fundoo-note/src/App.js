@@ -13,10 +13,10 @@ function App() {
     <div className="App">
       {/* <SignIn/> */}
       {/* <SignUp/> */}
-      {/* <Header/>
-      <TakeNote1/>
-      <TakeNote2/>
-      <TakeNote3/> */}
+      {/* <Header/> */}
+      {/* <TakeNote1/> */}
+      {/* <TakeNote2/> */}
+      {/* <TakeNote3/> */}
       {/* <Dashboard/> */}
       <Router1/>
     </div>

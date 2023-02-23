@@ -8,12 +8,12 @@ import Typography from '@mui/material/Typography';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
-import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import InputBase from '@mui/material/InputBase';
-import { NoteArchieveApi } from '../../services/DataService';
+import { NoteArchieveApi, NoteTrashApi } from '../../services/DataService';
 
 
 export default function TakeNote3(props) {
@@ -31,6 +31,22 @@ export default function TakeNote3(props) {
         console.log(err)
       })
   }
+
+  const NoteTrash =(id) =>{
+    let nId = {
+      "noteID": id
+  }
+
+  NoteTrashApi(nId)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+
   return (
     <Card sx={{ maxWidth: 240 }}>
       <CardHeader
@@ -60,7 +76,7 @@ export default function TakeNote3(props) {
           <PaletteOutlinedIcon style={{ color: '#202124' }} fontSize="small" />
         </IconButton>
         <IconButton aria-label="share">
-          <InsertPhotoOutlinedIcon style={{ color: '#202124' }} fontSize="small" />
+          <DeleteIcon onClick={() => NoteTrash(props.note.noteID)} style={{ color: '#202124' }} fontSize="small" />
         </IconButton>
         <IconButton aria-label="share">
           <ArchiveOutlinedIcon onClick={() => NoteArchieve(props.note.noteID)} style={{ color: '#202124' }} fontSize="small" />
