@@ -13,10 +13,24 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import InputBase from '@mui/material/InputBase';
+import { NoteArchieveApi } from '../../services/DataService';
 
 
 export default function TakeNote3(props) {
 
+  const NoteArchieve = (id) => {
+    let nId = {
+      "noteID": id
+    }
+
+    NoteArchieveApi(nId)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
   return (
     <Card sx={{ maxWidth: 240 }}>
       <CardHeader
@@ -49,7 +63,7 @@ export default function TakeNote3(props) {
           <InsertPhotoOutlinedIcon style={{ color: '#202124' }} fontSize="small" />
         </IconButton>
         <IconButton aria-label="share">
-          <ArchiveOutlinedIcon style={{ color: '#202124' }} fontSize="small" />
+          <ArchiveOutlinedIcon onClick={() => NoteArchieve(props.note.noteID)} style={{ color: '#202124' }} fontSize="small" />
         </IconButton>
         <IconButton aria-label="share">
           <MoreVertOutlinedIcon style={{ color: '#202124' }} fontSize="small" />
