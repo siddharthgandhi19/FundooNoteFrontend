@@ -14,6 +14,7 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import InputBase from '@mui/material/InputBase';
 import { NoteArchieveApi, NoteTrashApi } from '../../services/DataService';
+import { green } from '@mui/material/colors';
 
 
 export default function TakeNote3(props) {
@@ -26,6 +27,7 @@ export default function TakeNote3(props) {
     NoteArchieveApi(nId)
       .then(res => {
         console.log(res)
+        props.autoRefresh()
       })
       .catch(err => {
         console.log(err)
@@ -50,6 +52,8 @@ export default function TakeNote3(props) {
   return (
     <Card sx={{ maxWidth: 240 }}>
       <CardHeader
+      title={props.note.title} style={{}}
+      // title={props.note.title} style={{color:'green', position:'relative', left:'-40px', fontSize:'20px'}}
         // avatar={
         //   <InputBase id="outlined-basic" placeholder='Title' variant="outlined" multiline fullWidth="true" />
         // }
@@ -58,11 +62,11 @@ export default function TakeNote3(props) {
             <PushPinOutlinedIcon style={{ color: '#202124' }} />
           </IconButton>
         }
-        title={props.note.title}
+        
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.note.description}
+          {props.note.description} 
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

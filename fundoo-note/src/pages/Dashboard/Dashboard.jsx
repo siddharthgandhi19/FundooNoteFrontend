@@ -1,3 +1,4 @@
+import { green } from '@mui/material/colors';
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/header/Header'
 import TakeNote1 from '../../components/TakeNote1/TakeNote1';
@@ -9,6 +10,8 @@ function Dashboard() {
 
     const [toggle, setToggle] = useState(true);
     const [DataList, setDataList] = useState([])
+
+
     const openNote = () => {
         setToggle(false)
     }
@@ -17,7 +20,7 @@ function Dashboard() {
         setToggle(true)
     }
 
-    useEffect(() => {
+    const getListMethod = () => {
         getListApi()
             .then(response => {
                 console.log(response)
@@ -26,6 +29,14 @@ function Dashboard() {
             .catch(error => {
                 console.log(error)
             })
+    }
+
+    const autoRefresh = () => {
+        getListMethod()
+    }
+
+    useEffect(() => {
+        getListMethod()
     }, [])
     console.log(DataList)
 
@@ -38,7 +49,7 @@ function Dashboard() {
                 toggle ? <TakeNote1 openNote={openNote} /> : <TakeNote2 closeNote={closeNote} />
             }
 
-            <div style={{ width: '70%', height: '100%', display: 'flex', flexWrap: 'wrap' }}>
+            <div style={{ position: 'relative', top:'60px', left: '210px' , width: '72vw', height: '100%', display: 'flex', flexWrap: 'wrap', gap:'15px',}}>
                 {
                     DataList.map(note => (
                         <TakeNote3 note={note} />

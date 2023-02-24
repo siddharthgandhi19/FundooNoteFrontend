@@ -24,9 +24,11 @@ function TakeNote2(props) {
             createNewNoteApi(noteData)
                 .then(response => {
                     console.log(response)
+                    props.autoRefresh()
                 })
                 .catch(err => {
                     console.log(err)
+                   
                 })
         }
     }

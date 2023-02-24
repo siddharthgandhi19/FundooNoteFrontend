@@ -3,6 +3,9 @@ const HeaderConfig = {
     headers: { Authorization: `bearer ${localStorage.getItem("token")}` }
 }
 
+// key : value  // ` means 
+
+//call API here for getting data
 const BaseUrl = 'https://localhost:44386/api/Note'
 
 export const getListApi = () => {

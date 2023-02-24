@@ -12,7 +12,7 @@ function TakeNote1(props) {
     const Submit = () => {
         props.openNote()
     }
-
+              
     return (
         <div onClick={Submit} className="noteonemaincontainer">
             <div className="takenote">
@@ -20,7 +20,7 @@ function TakeNote1(props) {
             <div className="sidenavigation">
                 <IconButton> <CheckBoxOutlinedIcon /> </IconButton>
                 <IconButton> <BrushOutlinedIcon /> </IconButton>
-                <IconButton> <ImageOutlinedIcon /> </IconButton>
+                <IconButton> <ImageOutlinedIcon /> </IconButton> 
             </div>
         </div>
     )
