@@ -46,13 +46,13 @@ function Dashboard() {
         <div>
             <Header />
             {
-                toggle ? <TakeNote1 openNote={openNote} /> : <TakeNote2 closeNote={closeNote} />
+                toggle ? <TakeNote1 openNote={openNote} /> : <TakeNote2 closeNote={closeNote}  autoRefresh={autoRefresh}/>
             }
 
             <div style={{ position: 'relative', top:'60px', left: '210px' , width: '72vw', height: '100%', display: 'flex', flexWrap: 'wrap', gap:'15px',}}>
                 {
                     DataList.map(note => (
-                        <TakeNote3 note={note} />
+                        <TakeNote3 note={note} autoRefresh={autoRefresh} />
                     ))
                 }
             </div>
