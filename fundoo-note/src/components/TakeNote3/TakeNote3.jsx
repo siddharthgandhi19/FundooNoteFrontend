@@ -13,7 +13,7 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import InputBase from '@mui/material/InputBase';
-import { NoteArchieveApi, NoteTrashApi } from '../../services/DataService';
+import { NoteArchieveApi, NotePinApi, NoteTrashApi } from '../../services/DataService';
 import { green } from '@mui/material/colors';
 
 
@@ -34,12 +34,26 @@ export default function TakeNote3(props) {
       })
   }
 
-  const NoteTrash =(id) =>{
+  const NoteTrash = (id) => {
     let nId = {
       "noteID": id
+    }
+
+    NoteTrashApi(nId)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
-  NoteTrashApi(nId)
+  const NotePin = (id) => {
+    let nId = {
+      "noteID": id
+    }
+
+    NotePinApi(nId)
       .then(res => {
         console.log(res)
       })
@@ -52,21 +66,24 @@ export default function TakeNote3(props) {
   return (
     <Card sx={{ maxWidth: 240 }}>
       <CardHeader
-      title={props.note.title} style={{}}
-      // title={props.note.title} style={{color:'green', position:'relative', left:'-40px', fontSize:'20px'}}
+
+        // title={props.note.title} style={{color:'green', position:'relative', left:'-40px', fontSize:'20px'}}
         // avatar={
         //   <InputBase id="outlined-basic" placeholder='Title' variant="outlined" multiline fullWidth="true" />
         // }
         action={
           <IconButton aria-label="settings">
-            <PushPinOutlinedIcon style={{ color: '#202124' }} />
+            <PushPinOutlinedIcon onClick={() => NotePin(props.note.noteID)} style={{ color: '#202124' }} />
           </IconButton>
         }
-        
+
+        title={props.note.title}
+      //style={{ position:'relative', left:'-50px' , fontSize:'10px'}}
+
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.note.description} 
+          {props.note.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
